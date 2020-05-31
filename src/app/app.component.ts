@@ -13,7 +13,7 @@ export class AppComponent {
   ava1: string;
   ava2: string;
   resultIsActive: boolean;
-  baseAddress: any = environment.baseUrl;
+  baseAddress: any = "https://gabby-gigantic-espadrille.glitch.me";
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
 

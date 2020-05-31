@@ -1,3 +1,4 @@
+import { environment } from "./../environments/environment";
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
@@ -12,7 +13,7 @@ export class AppComponent {
   ava1: string;
   ava2: string;
   resultIsActive: boolean;
-  baseAddress: any = "http://localhost:3000";
+  baseAddress: any = environment.baseUrl;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
 

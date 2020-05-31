@@ -1,0 +1,18 @@
+<!--
+<router-outlet></router-outlet> -->
+<div>
+  <h1>Anime Academy Couple Generator</h1>
+  <div>
+    <form [formGroup]="formGroup">
+      <label for="file">
+        Hochladen
+      </label>
+      <input id="file" type="file" name="fg" formControlName="file" (change)="onFileChange($event)" />
+    </form>
+  </div>
+  <div *ngIf="resultIsActive">
+    <h2>Ergebnis:</h2>
+    <a [attr.href]="ava1">{{ava1}}</a><br>
+    <a [attr.href]="ava2">{{ava2}}</a>
+  </div>
+</div>

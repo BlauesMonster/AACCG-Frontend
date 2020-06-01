@@ -6,16 +6,37 @@ $background_color_inherit: inherit;
 $background_color_border: red;
 $background_color_ac_purple: #573699;
 
-.ac-button {
-  background-color: $background_color_ac_purple;
-  color: $color_white2;
-  border: 0.1em solid $background_color_ac_purple;
-  width: 100%;
 
+.padding-1 {
+  padding: 1em;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-horizontal-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  width: 10em;
+  height: 10em;
+  border: 0.1em solid #d6d6d6;
+}
+
+.margin-1 {
+  margin: 1em;
+}
+
+.col-0 {
+  width: 0em;
 }
 
 .ac-upload-label {
-
   display: inline-block;
   text-align: center;
   color: #fefefe;
@@ -26,15 +47,11 @@ $background_color_ac_purple: #573699;
 }
 
 .box {
-
-  padding: 1em;
   background-color: #f9f6f9;
-  /* display: inline-block; */
   overflow: auto;
   border: 0.1em solid #d6d6d6;
   border-radius: 1em;
   display: flex;
-
 }
 
 .loader {

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://gabby-gigantic-espadrille.glitch.me",
+  baseUrl: "http://localhost:3000",
 };
 
 /*

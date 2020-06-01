@@ -1,4 +1,3 @@
-import { environment } from "./../environments/environment";
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
@@ -9,12 +8,10 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "accgfrontend";
-  ava1: string;
-  ava2: string;
+  avatarUrls: string[];
   loadingIsActive: boolean;
   resultIsActive: boolean;
-  baseAddress: any = "https://gabby-gigantic-espadrille.glitch.me";
+  baseAddress: string = "https://gabby-gigantic-espadrille.glitch.me";
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
 
@@ -23,7 +20,6 @@ export class AppComponent {
   });
 
   onFileChange(event) {
-    console.log(event.target.files);
     const file: File = event.target.files[0];
 
     if (!this.formGroup.invalid) {
@@ -32,21 +28,20 @@ export class AppComponent {
       reader.onload = () => {
         this.resultIsActive = false;
         this.loadingIsActive = true;
-        this.uploadGalleryFile(file.name, reader.result);
+        this.uploadImage(file.name, reader.result);
         this.formGroup.reset();
       };
     }
   }
-  uploadGalleryFile(fileName: string, fileContent: string | ArrayBuffer) {
+  uploadImage(fileName: string, fileContent: string | ArrayBuffer) {
     this.httpClient
-      .post<any>(`${this.baseAddress}/image`, {
+      .post<string[]>(`${this.baseAddress}/image`, {
         name: fileName,
         content: fileContent,
       })
       .subscribe((res) => {
         console.log(res);
-        this.ava1 = res[0];
-        this.ava2 = res[1];
+        this.avatarUrls = res;
         this.loadingIsActive = false;
         this.resultIsActive = true;
       });

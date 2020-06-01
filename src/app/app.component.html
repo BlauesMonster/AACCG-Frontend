@@ -1,11 +1,9 @@
 <!--
 <router-outlet></router-outlet> -->
-<div style="background-color: #f1f6f9;   ">
-  <div style="padding: 1em;">
-    <div class="box">
-      <div style="    padding: 1em;
-  display: flex;
-  flex-direction: column;">
+<div>
+  <div class="padding-1">
+    <div class="box padding-1">
+      <div class="padding-1 flex-vertical">
         <h1>Anime Academy Chat Couple Generator</h1>
         <div>
           <h4>Created by: Dara</h4>
@@ -26,7 +24,7 @@
             <label for="file" class="ac-upload-label">
               Hochladen
             </label>
-            <input id="file" type="file" name="fg" formControlName="file" style="width: 0em;"
+            <input id="file" type="file" name="fg" formControlName="file" class="col-0"
               (change)="onFileChange($event)" />
           </form>
         </div>
@@ -34,32 +32,18 @@
         <div *ngIf="resultIsActive">
           <div>
             <h2>Preview:</h2>
-            <div style="    display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;">
-              <img style="    /* padding: 1em; */
-              width: 10em;
-              height: 10em;
-              border: 0.1em solid #d6d6d6;
-              /* border-radius: 1em; */
-              margin: 1em;" [attr.src]="ava1" />
-              <img style="    /* padding: 1em; */
-              width: 10em;
-              height: 10em;
-              border: 0.1em solid #d6d6d6;
-              /* border-radius: 1em; */
-              margin: 1em;" [attr.src]="ava2" />
+            <div class="flex-horizontal-wrap">
+              <img *ngFor="let avatarUrl of avatarUrls" class="image-container margin-1" [attr.src]="avatarUrl" />
             </div>
           </div>
 
           <div>
             <h2>Ergebnis:</h2>
-            <div style="display: flex;
-            flex-direction: column;"><a style="padding: 1em;" target="_blank" rel="noopener noreferrer"
-                [attr.href]="ava1">Download Couple
-                Part 1</a>
-              <a style="padding: 1em;" target="_blank" rel="noopener noreferrer" [attr.href]="ava2">Download Couple Part
-                2</a></div>
+            <div class="flex-vertical">
+              <a *ngFor="let avatarUrl of avatarUrls; let i = index" class="padding-1" target="_blank"
+                rel="noopener noreferrer" [attr.href]="avatarUrl">Download Couple Part
+                {{i+1}}</a>
+            </div>
           </div>
         </div>
       </div>

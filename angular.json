@@ -129,5 +129,13 @@
       }
     }
   },
-  "defaultProject": "accgfrontend"
+  "defaultProject": "accgfrontend",
+  "cli": {
+    "analytics": "f90714be-efb9-4273-88ca-1305ab8dc754"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -1,0 +1,52 @@
+<!--
+<router-outlet></router-outlet> -->
+<div>
+  <div class="padding-1">
+    <div class="box padding-1">
+      <div class="padding-1 flex-vertical">
+        <h1>Anime Academy Chat Couple Generator</h1>
+        <div>
+          <h4>Created by: Dara</h4>
+        </div>
+        <div>
+          <h2>Informationen:</h2>
+          <ul>
+            <li>Bilder sollten einen transparenten Hintergrund besitzen</li>
+            <li>Transparente Ränder werden automatisch weggeschnitten. Inhalt wird automatisch maximiert</li>
+            <li>Couples besitzen immer die maximale Größe ohne Verzerrung</li>
+            <li>Wenn der Inhalt des Bildes breiter ist, entsteht ein horizontales Couple</li>
+            <li>Wenn der Inhalt des Bildes höher ist, entsteht ein vertikales Couple</li>
+            <li>Die Bilder werden nach 5 Minuten gelöscht</li>
+          </ul>
+        </div>
+        <div>
+          <form [formGroup]="formGroup">
+            <label for="file" class="ac-upload-label">
+              Hochladen
+            </label>
+            <input id="file" type="file" name="fg" formControlName="file" class="col-0"
+              (change)="onFileChange($event)" />
+          </form>
+        </div>
+        <div *ngIf="loadingIsActive" class="loader"></div>
+        <div *ngIf="resultIsActive">
+          <div>
+            <h2>Preview:</h2>
+            <div class="flex-horizontal-wrap">
+              <img *ngFor="let avatarUrl of avatarUrls" class="image-container margin-1" [attr.src]="avatarUrl" />
+            </div>
+          </div>
+
+          <div>
+            <h2>Ergebnis:</h2>
+            <div class="flex-vertical">
+              <a *ngFor="let avatarUrl of avatarUrls; let i = index" class="padding-1" target="_blank"
+                rel="noopener noreferrer" [attr.href]="avatarUrl">Download Couple Part
+                {{i+1}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

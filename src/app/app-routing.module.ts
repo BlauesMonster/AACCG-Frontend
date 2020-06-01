@@ -1,11 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { CoupleGeneratorComponent } from "./couple/couple-generator/couple-generator.component";
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: "", component: CoupleGeneratorComponent },
+  {
+    path: "**",
+    redirectTo: "",
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

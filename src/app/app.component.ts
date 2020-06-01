@@ -30,6 +30,7 @@ export class AppComponent {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
+        this.resultIsActive = false;
         this.loadingIsActive = true;
         this.uploadGalleryFile(file.name, reader.result);
         this.formGroup.reset();

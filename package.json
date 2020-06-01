@@ -1,13 +1,14 @@
 {
   "name": "accgfrontend",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod --base-href=\"https://blauesmonster.github.io/AACCG-Frontend/\" && angular-cli-ghpages --dir dist/accgfrontend"
   },
   "private": true,
   "dependencies": {

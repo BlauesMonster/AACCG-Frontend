@@ -1,3 +1,4 @@
+import { environment } from "./../environments/environment";
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
@@ -11,7 +12,7 @@ export class AppComponent {
   avatarUrls: string[];
   loadingIsActive: boolean;
   resultIsActive: boolean;
-  baseAddress: string = "https://gabby-gigantic-espadrille.glitch.me";
+  baseAddress: string = environment.baseUrl;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
 

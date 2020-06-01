@@ -1,18 +1,68 @@
 <!--
 <router-outlet></router-outlet> -->
-<div>
-  <h1>Anime Academy Couple Generator</h1>
-  <div>
-    <form [formGroup]="formGroup">
-      <label for="file">
-        Hochladen
-      </label>
-      <input id="file" type="file" name="fg" formControlName="file" (change)="onFileChange($event)" />
-    </form>
-  </div>
-  <div *ngIf="resultIsActive">
-    <h2>Ergebnis:</h2>
-    <a target="_blank" rel="noopener noreferrer" [attr.href]="ava1">{{ava1}}</a><br>
-    <a target="_blank" rel="noopener noreferrer" [attr.href]="ava2">{{ava2}}</a>
+<div style="background-color: #f1f6f9;     height: 100%;">
+  <div style="padding: 1em;">
+    <div class="box">
+      <div style="    padding: 1em;
+  display: flex;
+  flex-direction: column;">
+        <h1>Anime Academy Couple Generator</h1>
+        <div>
+          <h4>Created by: Dara</h4>
+        </div>
+        <div>
+          <h2>Informationen:</h2>
+          <ul>
+            <li>Bilder sollten einen transparenten Hintergrund besitzen</li>
+            <li>Transparente Ränder werden automatisch weggeschnitten. Inhalt wird automatisch maximiert</li>
+            <li>Couples besitzen immer die maximale Größe ohne Verzerrung</li>
+            <li>Wenn der Inhalt des Bildes breiter ist, entsteht ein horizontales Couple</li>
+            <li>Wenn der Inhalt des Bildes höher ist, entsteht ein vertikales Couple</li>
+            <li>Die Bilder werden nach 5 Minuten gelöscht</li>
+          </ul>
+        </div>
+        <div>
+          <form [formGroup]="formGroup">
+            <label for="file" class="ac-upload-label">
+              Hochladen
+            </label>
+            <input id="file" type="file" name="fg" formControlName="file" style="width: 0em;"
+              (change)="onFileChange($event)" />
+          </form>
+        </div>
+        <div *ngIf="loadingIsActive" class="loader"></div>
+        <div *ngIf="resultIsActive">
+          <div>
+            <h2>Preview:</h2>
+            <div style="    display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;">
+              <img style="    /* padding: 1em; */
+              width: 10em;
+              height: 10em;
+              border: 0.1em solid #d6d6d6;
+              /* border-radius: 1em; */
+              margin: 1em;" [attr.src]="ava1" />
+              <img style="    /* padding: 1em; */
+              width: 10em;
+              height: 10em;
+              border: 0.1em solid #d6d6d6;
+              /* border-radius: 1em; */
+              margin: 1em;" [attr.src]="ava2" />
+            </div>
+          </div>
+
+          <div>
+            <h2>Ergebnis:</h2>
+            <div style="display: flex;
+            flex-direction: column;"><a style="padding: 1em;" target="_blank" rel="noopener noreferrer"
+                [attr.href]="ava1">Download Couple
+                Part 1</a>
+              <a style="padding: 1em;" target="_blank" rel="noopener noreferrer" [attr.href]="ava2">Download Couple Part
+                2</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

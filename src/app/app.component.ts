@@ -12,6 +12,7 @@ export class AppComponent {
   title = "accgfrontend";
   ava1: string;
   ava2: string;
+  loadingIsActive: boolean;
   resultIsActive: boolean;
   baseAddress: any = "https://gabby-gigantic-espadrille.glitch.me";
 
@@ -29,6 +30,7 @@ export class AppComponent {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
+        this.loadingIsActive = true;
         this.uploadGalleryFile(file.name, reader.result);
         this.formGroup.reset();
       };
@@ -44,6 +46,7 @@ export class AppComponent {
         console.log(res);
         this.ava1 = res[0];
         this.ava2 = res[1];
+        this.loadingIsActive = false;
         this.resultIsActive = true;
       });
   }

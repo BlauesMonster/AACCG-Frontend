@@ -19,13 +19,33 @@
             <li>Die Bilder werden nach 5 Minuten gelöscht</li>
           </ul>
         </div>
-        <div>
-          <form [formGroup]="formGroup">
+        <div class="radio-container">
+          <label class="container">Url
+            <input type="radio" checked="checked" (click)="selectOption('url')" name="radio">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">Datei
+            <input type="radio" (click)="selectOption('file')" name="radio">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div *ngIf="option === 'file'">
+          <form [formGroup]="formGroupFile">
             <label for="file" class="ac-upload-label">
               Hochladen
             </label>
             <input id="file" type="file" name="fg" formControlName="file" class="col-0"
               (change)="onFileChange($event)" />
+          </form>
+        </div>
+        <div *ngIf="option === 'url'">
+          <form [formGroup]="formGroupUrl" class="flex-horizontal-wrap col-12">
+            <div class="flex-horizontal-wrap col-10">
+              <input class="ac-input" type="text" formControlName="imageUrl" placeholder="Url zu einem Bild" />
+            </div>
+            <div class="flex-horizontal-wrap col-2">
+              <button class="ac-button" (click)="uploadImage()">Hochladen</button>
+            </div>
           </form>
         </div>
         <div *ngIf="loadingIsActive" class="loader"></div>
